@@ -9,19 +9,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SyncronizationTest {
 
 	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
-
-		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
+		WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(30));
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
 		String veggies[] = { "Cucumber", "Brocolli", "Cauliflower" };
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 		Thread.sleep(2000);
@@ -29,9 +31,15 @@ public class SyncronizationTest {
 		//Cart Click 
 		driver.findElement(By.xpath("//img[@alt='Cart']")).click();
 		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.promoCode")));
 		driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
 		driver.findElement(By.cssSelector("button.promoBtn")).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo")));
 		System.out.println( driver.findElement(By.cssSelector("span.promoInfo")).getText());
+		
+		
+		
+		
 		
 
 	}
