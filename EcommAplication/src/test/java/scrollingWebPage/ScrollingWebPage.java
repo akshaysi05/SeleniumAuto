@@ -2,6 +2,8 @@ package scrollingWebPage;
 
 
 
+import static org.testng.Assert.assertEquals;
+
 import java.awt.Window;
 import java.util.List;
 
@@ -30,8 +32,14 @@ public class ScrollingWebPage {
 	    sum=sum+Integer.parseInt(values.get(i).getText());   
 	}
 	System.out.println(sum);
+	String text=driver.findElement(By.cssSelector(".totalAmount")).getText();
+	String actualAmount=text.split(" Collected:")[1].trim();
+	int actualvalues =Integer.parseInt(actualAmount);
+	System.out.println(actualAmount);
+	assertEquals(actualvalues, sum);
 
 	}
+    
 
 	
 }
