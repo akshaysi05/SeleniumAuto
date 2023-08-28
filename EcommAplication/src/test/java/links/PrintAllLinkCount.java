@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class PrintAllLinkCount {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -31,13 +31,17 @@ public class PrintAllLinkCount {
 	 System.out.println(collinks.findElements(By.tagName("a")).size());
 	 for(int i=1;i<collinks.findElements(By.tagName("a")).size();i++) {
 		 String clickonbutton=Keys.chord(Keys.CONTROL,Keys.ENTER);
+		 
 		 collinks.findElements(By.tagName("a")).get(i).sendKeys(clickonbutton);
+		 Thread.sleep(5000L);
+	 }
 		Set<String>Windows= driver.getWindowHandles();
 		Iterator<String> it=Windows.iterator();
 		while(it.hasNext()) {
 			driver.switchTo().window( it.next());
+			Thread.sleep(2000l);
 			System.out.println(driver.getTitle());
-		}
+		
 	 }
 		
 		
