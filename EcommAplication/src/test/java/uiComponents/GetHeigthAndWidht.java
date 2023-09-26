@@ -18,6 +18,8 @@ public class GetHeigthAndWidht {
 		int w=name.getRect().getDimension().getWidth();
 		System.out.println("Hieght: "+h);
 		System.out.println("Widht : "+w);
+//		System.out.println(name.getRect().height);
+//		System.out.println(name.getRect().width);
 
 	}
 
