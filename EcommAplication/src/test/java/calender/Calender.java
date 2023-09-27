@@ -1,6 +1,9 @@
 package calender;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f27a5e7c0d7986b6d004b9cb060ff9dd6de1c0d2
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -21,9 +24,12 @@ public class Calender {
 		String months=driver.findElement(By.xpath("//div[@class='flatpickr-current-month']")).getText();
 		System.out.println(months);
 
+<<<<<<< HEAD
 		
 		
 		
+=======
+>>>>>>> f27a5e7c0d7986b6d004b9cb060ff9dd6de1c0d2
 	}
 
 }
