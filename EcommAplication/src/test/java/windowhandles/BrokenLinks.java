@@ -24,7 +24,7 @@ public class BrokenLinks {
 		List<WebElement> links=driver.findElements(By.cssSelector("li[class='gf-li'] a"));
 		
 		
-		
+	
 		for(WebElement link:links) {
 			String url= link.getAttribute("href");
 			
